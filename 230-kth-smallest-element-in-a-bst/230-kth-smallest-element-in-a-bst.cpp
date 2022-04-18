@@ -12,19 +12,22 @@
 class Solution {
 public:
     void inorder(TreeNode *root, vector<int>&v)
-    {if(root)
     {
+        if(root)
+       {
         inorder(root->left,v);
         v.push_back(root->val);
         inorder(root->right,v);
-    }
+       }
         
     }
     int kthSmallest(TreeNode* root, int k) {
         vector <int>v;
         
         inorder(root,v);
-        sort(v.begin(),v.end());
+        // sort(v.begin(),v.end());
+        // for(int i=0;i<v.size();i++)
+            // cout<<v[i];
         return v[k-1];
             
     }
