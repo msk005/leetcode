@@ -31,7 +31,9 @@ public:
     }
     
     bool hasNext() {
-        return !stk.empty();
+         if(!stk.empty())
+             return true;
+        return false;
     }
 };
 
