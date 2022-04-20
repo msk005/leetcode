@@ -6,7 +6,7 @@ public:
         
         for(int i=0;i<n;i++){
             sum += nums[i];
-            mxm = max(sum,mxm);
+            mxm = max(sum,mxm); //checks wheher next number is greater or max sumis greater
             
             if(sum<0) 
                 sum = 0;
@@ -15,3 +15,4 @@ public:
         return mxm;
     }
 };
+//this question is based on kadane algo revise once
