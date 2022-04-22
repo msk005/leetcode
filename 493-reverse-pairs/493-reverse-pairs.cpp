@@ -16,7 +16,8 @@ public:
         int left=low,right=mid+1;
         while(left<=mid&&right<=high)
         {
-            if(nums[left]<=nums[right])                                            temp.push_back(nums[left++]);
+            if(nums[left]<=nums[right])        
+                temp.push_back(nums[left++]);
             else
                 temp.push_back(nums[right++]); 
             
