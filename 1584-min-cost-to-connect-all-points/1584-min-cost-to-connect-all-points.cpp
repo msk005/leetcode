@@ -1,46 +1,46 @@
 class Solution {
 public:
     int minCostConnectPoints(vector<vector<int>>& points) {
-       vector<vector<int>> edges;
-        int n = points.size();
-        for(int i=1;i<n;i++)
-        {
-            for(int j=0;j<i;j++)
-            {
-                int d = abs(points[i][0]-points[j][0])+abs(points[i][1]-points[j][1]);
-                edges.push_back({d,i,j});
-            }
+       int len = points.size();
+        // array that keep track of the shortest distance from mst to each node
+        vector<int>disArr(len);
+        for (int i = 1; i < len; ++i) {
+            disArr[i] = INT_MAX;
         }
-       
-        sort(edges.begin(),edges.end());
-        vector<int> parent(n);
-        for(int i=0;i<n;i++)
-            parent[i] = i;
         
-        int weight = 0,e = 0;
+        // visited[node] == true if node in mst
+        vector<bool>visited(len);
+        visited[0] = true;
         
-        for(int i=0;i<edges.size();i++)
-        {
-            int w = edges[i][0],u = edges[i][1],v = edges[i][2];
-            
-            // apply union find to check cycle
-            while(u!=parent[u])
-                u = parent[u];
-            
-            while(v!=parent[v])
-                v = parent[v];
-            
-            if(u != v) // if cycle not found
-            {
-                weight += w;//add its weight
-                parent[u]=v;//connect u and v
-                e++; //increase egde count
+        int numEdge = 0;
+        // current node, used to update the disArr
+        int cur = 0;
+        // result
+        int res = 0;
+        
+        while (numEdge++ < len - 1) {
+            int minEdge = INT_MAX;
+            int next = -1;
+            for (int i = 0; i < len; i++) {
+                // if the node i is not in mst
+                if (!visited[i]) {
+                    // find the distance between cur and i
+                    int dis = abs(points[cur][0] - points[i][0]) + abs(points[cur][1] - points[i][1]);
+                    // update distance array
+                    disArr[i] = min(dis, disArr[i]);
+                    // find the shortest edge
+                    if (disArr[i] < minEdge) {
+                        minEdge = disArr[i];
+                        next = i;
+                    }
+                }
             }
-            
-            if(e==n-1) //edge count reaches n-1 MST is complete
-                return weight;
+            cur = next;
+            visited[cur] = true;
+            res += minEdge;
         }
-        return weight;
+        
+        return res;
     
     }
 };
