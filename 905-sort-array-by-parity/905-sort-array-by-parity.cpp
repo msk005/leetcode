@@ -5,20 +5,19 @@ public:
         if(n==1)
             return nums;
         
-         vector<int> ans;
-         for(int i=0;i<n;i++)
-         {
-             if(nums[i]%2==0)
-             { int p=nums[i];
-               ans.insert(ans.begin(), p);
-             }
-             
-             else
-             { int p=nums[i];
-                 ans.push_back(p);
-             }
-         }
-        return ans;
-        
+        for(int i=0,j=n-1;i<j;)
+        {
+            if(nums[i]%2==0)
+                i++;
+            else if(nums[j]%2!=0)
+                j--;
+            else if(nums[i]%2!=0 and nums[j]%2==0)
+            {
+                swap(nums[i],nums[j]);
+                 i++;
+                j--;
+            }
+        }
+        return nums;
     }
 };
