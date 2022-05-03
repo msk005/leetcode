@@ -14,12 +14,13 @@ public:
     
     ListNode *slow  = head;
     ListNode *fast  = head;
-    ListNode *entry = head;
+    ListNode *entry = NULL;
     
     while (fast->next && fast->next->next) {
         slow = slow->next;
         fast = fast->next->next;
         if (slow == fast) {                      // there is a cycle
+            entry=head;
             while(slow != entry) {               // found the entry location
                 slow  = slow->next;
                 entry = entry->next;
@@ -28,6 +29,6 @@ public:
             // return slow;
         }
     }
-    return NULL;                  
+    return entry;                  
     }
 };
