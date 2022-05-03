@@ -32,39 +32,61 @@ class Solution {
      }
 public:
     Node* copyRandomList(Node* head) {
-                Node *cloneHead=NULL;
-        Node *cloneTail=NULL;
+         Node* cloneHead = NULL;
+        Node* cloneTail = NULL;
         
-        Node *temporiginal=head;
-        
-        while(temporiginal)
-        {
-            insertAtTail(cloneHead,cloneTail,temporiginal->val);
-             temporiginal = temporiginal -> next;
+        Node* temp = head;
+        while(temp != NULL) {
+            insertAtTail(cloneHead, cloneTail, temp->val);
+            temp = temp -> next;
         }
         
-         unordered_map<Node *,Node *>oldToNew;
+        // step 2: insert nodes of Clone List in between originalList
         
-        Node *originalNode =head;
-        Node *cloneNode=cloneHead;
+        Node* originalNode = head;
+        Node* cloneNode = cloneHead;
         
-        while(originalNode )
-        {
-            oldToNew[originalNode]=cloneNode;
+        while(originalNode != NULL && cloneNode != NULL) {
+            Node* next = originalNode -> next;
+            originalNode -> next = cloneNode;
+            originalNode = next;
             
-            originalNode=originalNode->next;
-            cloneNode=cloneNode->next;
+            next = cloneNode -> next;
+            cloneNode -> next = originalNode;
+            cloneNode  = next;
         }
         
-        originalNode=head;
-        cloneNode=cloneHead;
-        
-        while(originalNode)
+        // step 3: Random pointer copy
+            temp=head;
+        while(temp)
         {
-            cloneNode->random=oldToNew[originalNode->random];
-             originalNode=originalNode->next;
-            cloneNode=cloneNode->next;
+            if(temp->next)
+            {
+               if( temp->random!=NULL)
+                temp->next->random=temp->random->next;
+                
+                else
+                    temp->next->random=temp->random;
+            }
+            temp=temp->next->next;
         }
+        
+        //step 4: revert step 2 changes
+        originalNode = head;
+       cloneNode = cloneHead;
+        
+         while (originalNode && cloneNode)
+            {
+                 originalNode->next=cloneNode->next;
+            originalNode=originalNode->next;
+             
+             if(originalNode)
+              cloneNode->next=originalNode->next;
+             
+            cloneNode=cloneNode->next;
+            }
+
+        // step 5 answer return
         return cloneHead;
     }
 };
