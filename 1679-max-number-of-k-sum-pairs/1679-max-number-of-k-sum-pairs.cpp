@@ -13,8 +13,9 @@ public:
             else
                 um[nums[i]]++;
         }
-        
-        
+        for(auto x:um)
+            cout<<x.first<<" "<<x.second<<endl;
+            
          
         return c;
     }
