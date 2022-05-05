@@ -14,3 +14,5 @@ public:
         return v;
     }
 };
+
+//if we insert from last then the first index will be inserted in hashmap
