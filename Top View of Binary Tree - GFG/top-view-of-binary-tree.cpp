@@ -107,67 +107,43 @@ class Solution
     vector<int> topView(Node *root)
     {
         //Your code here
-    //     vector<int>ans;
-    //     if(!root)
-    //     return ans;
+        vector<int>ans;
+        if(!root)
+        return ans;
         
-    //     map<int,int>mp;
-    //     queue<pair<Node*,int>>q;
-    //     q.push({root,0});
-    //     while(!q.empty())
-    //     {
-    //         auto front=q.front();
-    //         q.pop();
+        map<int,int>mp;
+        queue<pair<Node*,int>>q;
+        q.push({root,0});
+        while(!q.empty())
+        {
+            auto ite=q.front();
+            q.pop();
             
-    //         Node *node=front.first;
-    //         int vline=front.second;
+            Node *node=ite.first;
+            int vline=ite.second;
             
-    //         if(mp.find(vline)==mp.end());
-    //         mp[vline]=node->data;
-            
-            
-    //         if(node->left)
-    //         q.push({node->left,vline-1});
-    //         if(node->right)
-    //         q.push({node->right,vline+1});
+            if(mp.find(vline)==mp.end())
+            mp[vline]=node->data;
             
             
-    //     }
+            if(node->left)
+            q.push({node->left,vline-1});
+            if(node->right)
+            q.push({node->right,vline+1});
+            
+            
+        }
         
-    //     for(auto x:mp)
-    //     {
-    //         ans.push_back(x.second);
-    //     }
+        for(auto x:mp)
+        {
+            ans.push_back(x.second);
+        }
         
-    //     return ans;
+        return ans;
         
-    // }
+    
 
- vector<int> ans; 
-        if(root == NULL) return ans; 
-        map<int,int> mpp; 
-        queue<pair<Node*, int>> q; 
-        q.push({root, 0}); 
-        while(!q.empty()) {
-            auto it = q.front(); 
-            q.pop(); 
-            Node* node = it.first; 
-            int line = it.second; 
-            if(mpp.find(line) == mpp.end()) mpp[line] = node->data; 
-            
-            if(node->left != NULL) {
-                q.push({node->left, line-1}); 
-            }
-            if(node->right != NULL) {
-                q.push({node->right, line + 1}); 
-            }
-            
-        }
-        
-        for(auto it : mpp) {
-            ans.push_back(it.second); 
-        }
-        return ans; 
+// 
     }
 };
 
