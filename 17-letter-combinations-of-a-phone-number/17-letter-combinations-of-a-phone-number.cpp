@@ -8,13 +8,13 @@ public:
             return ans;
         }
         
-        const vector<string> chars = { "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+        vector<string> chars = { "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
         string str;
         build(str, 0, digits, chars);
         return ans; 
     }
     
-    void build(string str, int i, const string& digits, const vector<string>& chars) {
+    void build(string str, int i, string& digits, vector<string>& chars) {
         
         if (i == digits.size()) {
             ans.push_back(str);
