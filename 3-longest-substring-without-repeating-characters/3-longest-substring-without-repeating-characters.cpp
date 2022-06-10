@@ -9,7 +9,8 @@ public:
         while(j<n&&i<n)
         { 
             if(us.find(s[j])==us.end())
-            {us.insert(s[j]);
+            {
+                us.insert(s[j]);
                    j++;
                 maxLen=max(maxLen,j-i);
             }
