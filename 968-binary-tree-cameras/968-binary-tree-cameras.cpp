@@ -28,6 +28,9 @@ public:
         if(!root)
             return covered;
     
+        if(root->left==NULL  and root->right==NULL)
+            return needCamera;
+        
     int leftc=cameraneed(root->left);
     int rightc=cameraneed(root->right);
     
