@@ -19,3 +19,6 @@ public:
         return v;
     }
 };
+
+//array traverse krke uss index p jaake element ko neagtive kr de rhe hai agar negative nhi hai to
+//maan lo koi element -ve nhi hua iska mtlb ki uss index ka number he nhi hai array mein to uss ko push krdo vector mein
