@@ -56,7 +56,7 @@ public:
             
         }
         
-        else if(c1%2!=0 and c2%2!=0)
+        else 
             return -1;
         }    
      return 0;       
