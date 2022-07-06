@@ -19,3 +19,5 @@ public:
         return maxSum;
     }
 };
+
+//last se subtract kro beacuse aage wala he le skte hai phle
