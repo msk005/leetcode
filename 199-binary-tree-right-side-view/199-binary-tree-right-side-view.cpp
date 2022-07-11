@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    vector<int>v;
+     vector<int>v;
     void func(TreeNode *root, int lvl)
     {
         if(!root)
