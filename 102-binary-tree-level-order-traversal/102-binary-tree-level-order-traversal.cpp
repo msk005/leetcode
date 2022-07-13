@@ -11,7 +11,8 @@
  */
 class Solution {
 public:
-     vector<vector<int>> ans;
+    
+        vector<vector<int>> ans;
      void help(TreeNode * root, int level)
      {
          vector<int>temp(1,0);
@@ -96,6 +97,6 @@ public:
 //              q.push(node->right);
 //         }
 //     }
-//         return ans;
+//         return ans; 
     }
 };
