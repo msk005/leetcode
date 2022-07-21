@@ -29,12 +29,12 @@ public:
         int distance=right-left;
         while(distance)
         {
-            ListNode *forwd=curr->next;
-            
+            ListNode *forwd=curr->next;       
+             
           
-            curr->next=forwd->next;
+            curr->next=forwd->next;      
             forwd->next=prev->next;
-              prev->next=forwd;
+              prev->next=forwd;     
             
             
             distance--;
@@ -42,3 +42,5 @@ public:
         return dummy->next;
     }
 };
+
+//reference https://leetcode.com/problems/reverse-linked-list-ii/discuss/2311084/JavaC%2B%2B-Tried-to-Explain-every-step
