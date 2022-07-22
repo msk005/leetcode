@@ -22,8 +22,10 @@ public:
         while(head!=NULL)
         {
             if(head->val<x)
-            {lefth->next=head;
-                 lefth=head;}
+            {
+                lefth->next=head;
+                 lefth=head;
+            }       //8 98-> 7 100->    becomes   8 and address of 7    and  lefth moves to 7 and points to it
             
             else 
             {
