@@ -5,7 +5,7 @@ public:
         int c=0;
         int idx=-1;
         int idx2=-1;
-        vector<int>v={-1,-1};
+       
         
         for(int i=0;i<nums.size();i++)
         {
@@ -22,8 +22,9 @@ public:
            }
                
         }
-        
-        if(c==0)
+       
+         vector<int>v={-1,-1};
+        if(c==0)         //if no elements found then return v
             return v;
         
         if(c==1)
