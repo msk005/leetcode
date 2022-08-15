@@ -30,12 +30,12 @@ public:
         }
            
          if ( num < prev)
-          ans -= num;
+          ans -= num;  ///aagr aage ka number bada hai to use ans mein se minuds krna pdega
            
            else 
-           ans += num;
+           ans += num;   ///otherwise add he krna hai
 
-          prev = num;
+          prev = num;  //yha oicchle num ka hisaab rkkh rkh rhe hai
           }
          return ans;
        }
