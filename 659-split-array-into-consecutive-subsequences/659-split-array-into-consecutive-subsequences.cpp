@@ -13,7 +13,7 @@ public:
             if(count[x]==0)
                 continue;
             
-            count[x]--;
+           
             
             if(end[x-1]>0)
             {  end[x-1]--;
@@ -29,6 +29,8 @@ public:
             }
             else
                 return false;
+            
+             count[x]--;
         }
         
         return true;
