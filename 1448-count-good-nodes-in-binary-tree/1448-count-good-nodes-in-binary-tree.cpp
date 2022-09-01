@@ -14,21 +14,20 @@ public:
     int c=0;
     void helper(TreeNode* root , int max)
     {
-       
+       if(!root)
+           return ;
         if(root->val>=max)
         {
             c++;
             max=root->val;
         }
-        if(root->left)
-            helper(root->left,max);
         
-        if(root->right)
+            helper(root->left,max);
+   
             helper(root->right,max);
     }
     int goodNodes(TreeNode* root) {
-        if(root==NULL)
-            return 0;
+        
         helper(root,-1e9);
         return c;
     }
