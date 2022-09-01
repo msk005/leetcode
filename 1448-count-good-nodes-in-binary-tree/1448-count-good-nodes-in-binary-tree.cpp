@@ -27,8 +27,8 @@ public:
             helper(root->right,max);
     }
     int goodNodes(TreeNode* root) {
-        if(!root)
-            return 0;
+        if (!root->left && !root->right)
+            return 1;
         helper(root,-1e9);
         return c;
     }
