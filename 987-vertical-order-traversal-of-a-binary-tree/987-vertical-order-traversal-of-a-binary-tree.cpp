@@ -46,11 +46,10 @@ public:
         for(auto i:nodes )
         { 
             vector<int>p;
+            
             for(auto j:i.second)
-            {
-              
-                                    p.insert(p.end(),j.second.begin(),j.second.end());
-            }
+             p.insert(p.end(),j.second.begin(),j.second.end());
+            
             res.push_back(p);
         }
         return res;
