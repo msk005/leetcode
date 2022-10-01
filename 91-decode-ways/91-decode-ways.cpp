@@ -10,6 +10,11 @@ public:
         
         int ans=0;
         int op1=s[i]-'0';
+         if(op1>0)
+        {
+            ans+=helper(i+1,s);
+        }
+        
         int op2=0;
         if(i<s.size()-1)  //iska mtlb 2 character hai string m atleast
         {
@@ -18,10 +23,7 @@ public:
              op2=op1*10+s[i+1]-'0';
             
         }
-        if(op1>0)
-        {
-            ans+=helper(i+1,s);
-        }
+       
         if(op1!=0 and op2>0 and op2<=26)
         {
             ans+=helper(i+2,s);
