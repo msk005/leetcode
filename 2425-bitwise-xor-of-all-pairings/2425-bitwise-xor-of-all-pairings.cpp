@@ -5,46 +5,18 @@ class Solution
         {
             int m=nums1.size();
             int n=nums2.size();
-            int ans;
-            if(m%2==0 and n%2==0)
-            {
-                int res=0;
-                 ans=res;
-            }
+            int ans=0;
+            int a=0;
+                for(int i=0;i<m;i++)   
+                   a^=nums1[i]  ;
+                
             
-            else if(m%2==0 and n%2==1)
-            {
-                int res=nums1[0];
-                for(int i=1;i<m;i++)   
-                {
-                  res^=nums1[i]  ;
-                }
-                
-                ans=res;
-            }
+            int b=0;
+             for(int i=0;i<n;i++)
+                 b^=nums2[i];
+          
             
-           else if(m%2==1 and n%2==0)
-            {
-                int res=nums2[0];
-                for(int i=1;i<n;i++)   
-                {
-                  res^=nums2[i] ; 
-                }
-                
-                ans=res;
-            }
-            
-            else
-            {
-                int res=nums1[0];
-              for(int i=1;i<m;i++)
-                  res^=nums1[i];
-                
-                for(int i=0;i<n;i++)
-                  res^=nums2[i];
-                
-                ans=res;
-            }
+            ans=(m%2)*b xor (n%2)*a;
             
             return ans;
           
