@@ -10,8 +10,7 @@ public:
     }
     
     string get(string key, int timestamp) {
-        if(um.find(key)==um.end())
-            return "";
+      
         for(int i=timestamp;i>0;i--)
         {
             if(um[key].find(i)!=um[key].end())
