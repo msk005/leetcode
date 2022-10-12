@@ -5,10 +5,10 @@ public:
         for(auto x:nums)
             cout<<x<<endl;
         int n=nums.size();
-       for(int i=0,j=1,k=2;i<j and j<k and k<n ;i++,j++,k++)
+       for(int i=0;i<n-2 ;i++)
         {
-           if(nums[i]+nums[j]>nums[k] and nums[k]+nums[j]>nums[i] and nums[i]+nums[k]>nums[j])
-            return nums[i]+nums[j]+nums[k];
+           if(nums[i]+nums[i+1]>nums[i+2] and nums[i+1]+nums[i+2]>nums[i] and nums[i]+nums[i+2]>nums[i+1])
+            return nums[i]+nums[i+1]+nums[i+2];
            
         }
          return 0;
