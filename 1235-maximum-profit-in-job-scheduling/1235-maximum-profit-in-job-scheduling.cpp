@@ -9,14 +9,23 @@ public:
         vector<int> mem(n+1,-1);
         return rec_mem(v,n,mem);  
     }
-     int latest_non_ov(vector<vector<int>> &v,int i)
+     int latest_non_ov_opt(vector<vector<int>> &v,int i)
     {
-        for(int j=i-1;j>=0;j--)
-        {
-            if(v[j][0]<=v[i][1])
-                return j;
-        }
-        return -1;
+        int lo = 0, hi = i - 1; 
+        while (lo <= hi) 
+        { 
+            int mid = (lo + hi) / 2; 
+            if (v[mid][0] <= v[i][1]) 
+            { 
+                if (v[mid + 1][0] <= v[i][1]) 
+                    lo = mid + 1; 
+                else
+                    return mid; 
+            } 
+            else
+                hi = mid - 1; 
+        } 
+        return -1; 
     }
     int rec_mem(vector<vector<int>> &v,int n,vector<int> &mem)
     {
@@ -26,7 +35,7 @@ public:
             return mem[n];
         int exclusive = rec_mem(v,n-1,mem);
         int inclusive = v[n-1][2];
-        int i = latest_non_ov(v,n-1);
+        int i = latest_non_ov_opt(v,n-1);
         if(i!=-1)
             inclusive += rec_mem(v,i+1,mem);
         return mem[n] = max(inclusive,exclusive);
