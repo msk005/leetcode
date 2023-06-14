@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-     vector<int>v;
+     vector<long long int>v;
     void inorder(TreeNode *root)
     {
         if(!root)
@@ -24,7 +24,7 @@ public:
     int getMinimumDifference(TreeNode* root) {
         inorder(root);
        
-        int mn;
+        long long int mn;
         for(int i=1;i<v.size();i++)
         {
             mn=min((v[i]-v[i-1]),mn);
