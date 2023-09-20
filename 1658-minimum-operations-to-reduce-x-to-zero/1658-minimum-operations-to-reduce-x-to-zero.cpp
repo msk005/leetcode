@@ -4,21 +4,26 @@ public:
        
         int n = nums.size(), s = 0, ans = INT_MAX;
         
-        for(int i = 0; i < n ; i++) s += nums[i];
+        for(int i = 0; i < n ; i++) 
+            s += nums[i];
         
-        if(s < x) return -1;
+        if(s < x) 
+            return -1;
         
         int st = 0, end = 0, windowSum = 0;
         
-        while(end < n){            
+        while(end < n)
+        {            
             windowSum += nums[end];            
-            while(windowSum > (s - x)){
+            while(windowSum > (s - x))
+            {
                 windowSum -= nums[st]; //Reducing window size
                 st++;
-            }            
-            if(windowSum == s - x){
+            }         
+            
+            if(windowSum == s - x)
                 ans = min(ans, n - (end - st + 1));
-            }            
+                    
             end++;            
         }
 		
